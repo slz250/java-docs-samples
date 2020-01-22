@@ -27,6 +27,21 @@ public class HelloWorld {
     PrintWriter writer = response.getWriter();
     writer.write("Hello World!");
   }
+
+  // [END functions_helloworld_get]
+  // [START functions_helloworld_http]
+  // HTTP Cloud Function.
+  public void helloGet(HttpServletRequest request, HttpServletResponse response)
+      throws IOException {
+    String name = request.getParameter("name");
+    if (name == null) {
+      name = "World";
+    }
+    PrintWriter writer = response.getWriter();
+    writer.write(String.format("Hello %s!", name));
+  }
+  // [END functions_helloworld_http]
+  // [START functions_helloworld_get]
 }
 
 // [END functions_helloworld_get]
